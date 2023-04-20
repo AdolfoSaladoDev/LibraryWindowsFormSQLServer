@@ -148,7 +148,11 @@ namespace WindowsFormsApp1
 
                 l.Id = int.Parse(tbId.Text);
 
+            } else
+            {
+                l.Id = -1;
             }
+            
 
             l.Title = tbTitle.Text;
             l.Description = tbDescription.Text;
