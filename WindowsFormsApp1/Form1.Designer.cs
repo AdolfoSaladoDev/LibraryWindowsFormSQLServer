@@ -55,13 +55,11 @@ namespace WindowsFormsApp1
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.libraryDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgBooks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spPages)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,9 +99,8 @@ namespace WindowsFormsApp1
             this.dgBooks.RowTemplate.ReadOnly = true;
             this.dgBooks.Size = new System.Drawing.Size(1183, 256);
             this.dgBooks.TabIndex = 1;
-            this.dgBooks.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgBooks_CellMouseClick);
+            this.dgBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBooks_CellContentClick);
             this.dgBooks.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBooks_RowEnter);
-            this.dgBooks.SelectionChanged += new System.EventHandler(this.dgBooks_SelectionChanged);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -168,7 +165,6 @@ namespace WindowsFormsApp1
             this.label2.Size = new System.Drawing.Size(36, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "ID: ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // tbId
             // 
@@ -184,7 +180,6 @@ namespace WindowsFormsApp1
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.Size = new System.Drawing.Size(268, 22);
             this.tbTitle.TabIndex = 5;
-            this.tbTitle.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label3
             // 
@@ -195,7 +190,6 @@ namespace WindowsFormsApp1
             this.label3.Size = new System.Drawing.Size(55, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Título:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -206,7 +200,6 @@ namespace WindowsFormsApp1
             this.label4.Size = new System.Drawing.Size(177, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = " Fecha de publicación:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // dpDate
             // 
@@ -214,7 +207,6 @@ namespace WindowsFormsApp1
             this.dpDate.Name = "dpDate";
             this.dpDate.Size = new System.Drawing.Size(267, 22);
             this.dpDate.TabIndex = 7;
-            this.dpDate.ValueChanged += new System.EventHandler(this.dpDate_ValueChanged);
             // 
             // label5
             // 
@@ -225,7 +217,6 @@ namespace WindowsFormsApp1
             this.label5.Size = new System.Drawing.Size(169, 20);
             this.label5.TabIndex = 8;
             this.label5.Text = " Número de páginas: ";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // spPages
             // 
@@ -320,19 +311,6 @@ namespace WindowsFormsApp1
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.DataSource = this.libraryDataSetBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 376);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1051, 163);
-            this.dataGridView1.TabIndex = 17;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
             // libraryDataSetBindingSource
             // 
             this.libraryDataSetBindingSource.DataSource = this.libraryDataSet;
@@ -344,7 +322,6 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1207, 621);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDelete);
@@ -371,7 +348,6 @@ namespace WindowsFormsApp1
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spPages)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -405,7 +381,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource libraryDataSetBindingSource;
     }
 }
