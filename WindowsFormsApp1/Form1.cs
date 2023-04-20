@@ -88,6 +88,9 @@ namespace WindowsFormsApp1
             {
                 newBook.Id = int.Parse(tbId.Text);
 
+            } else
+            {
+                newBook.Id = -1;
             }
 
             newBook.Title = tbTitle.Text;
