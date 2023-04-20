@@ -77,7 +77,6 @@ namespace WindowsFormsApp1
         private void btnSave_Click(object sender, EventArgs e)
         {
 
-
             Books l = GetDataOfFormBooks();
 
 
@@ -94,11 +93,6 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("No ha sido posible añadir el libro.");
             }
-
-
-
-
-
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -122,11 +116,6 @@ namespace WindowsFormsApp1
 
         private void UpdateForm()
         {
-
-            //DataSet ds = Repository.RepositorySQLServer.GetBooks();
-            //dgBooks.DataSource = Repository.RepositoryEntityFramework.GetBooks();
-            //this.booksTableAdapter.Fill(this.libraryDataSet.Books);
-            //dgBooks.DataSource = ds.Tables[0];
 
             var source = new BindingSource();
             List<Books> list = Repository.RepositoryEntityFramework.GetBooks();
