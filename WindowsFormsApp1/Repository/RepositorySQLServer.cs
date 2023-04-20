@@ -42,7 +42,7 @@ namespace WindowsFormsApp1.Repository
 
             try
             {
-                comando.CommandText = "set dateformat ymd; INSERT INTO Books VALUES ('" + c.Title + "', '" + c.PublicationDate + "', '" + c.Description + "', '" + c.NumOfPages + "')";
+                comando.CommandText = "set dateformat dmy; INSERT INTO Books VALUES ('" + c.Title + "', '" + c.PublicationDate + "', '" + c.Description + "', '" + c.NumOfPages + "')";
 
                 comando.Connection = conexion.cnx;
                 conexion.cnx.Open();
@@ -73,7 +73,7 @@ namespace WindowsFormsApp1.Repository
 
             try
             {
-                comando.CommandText = "DELETE FROM Book WHERE Id = '" + c.Id + "'";
+                comando.CommandText = "DELETE FROM Books WHERE Id = '" + c.Id + "'";
 
                 comando.Connection = conexion.cnx;
                 conexion.cnx.Open();
