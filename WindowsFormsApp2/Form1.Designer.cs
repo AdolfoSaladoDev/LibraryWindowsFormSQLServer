@@ -31,6 +31,12 @@ namespace WindowsFormsApp1
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgBooks = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publicationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numOfPagesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.libraryDataSet = new WindowsFormsApp1.LibraryDataSet();
             this.booksTableAdapter = new WindowsFormsApp1.LibraryDataSetTableAdapters.BooksTableAdapter();
@@ -50,19 +56,11 @@ namespace WindowsFormsApp1
             this.btnExit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.libraryDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dgBooks = new System.Windows.Forms.DataGridView();
-            this.booksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.publicationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numOfPagesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgBooks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spPages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgBooks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -73,9 +71,77 @@ namespace WindowsFormsApp1
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(537, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(14, 0);
+            this.label1.Size = new System.Drawing.Size(256, 125);
             this.label1.TabIndex = 0;
             this.label1.Text = "LIBRERÍA";
+            // 
+            // dgBooks
+            // 
+            this.dgBooks.AllowUserToAddRows = false;
+            this.dgBooks.AllowUserToOrderColumns = true;
+            this.dgBooks.AutoGenerateColumns = false;
+            this.dgBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgBooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.titleDataGridViewTextBoxColumn,
+            this.publicationDateDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.numOfPagesDataGridViewTextBoxColumn});
+            this.dgBooks.DataSource = this.booksBindingSource;
+            this.dgBooks.Location = new System.Drawing.Point(12, 316);
+            this.dgBooks.Name = "dgBooks";
+            this.dgBooks.ReadOnly = true;
+            this.dgBooks.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgBooks.RowHeadersVisible = false;
+            this.dgBooks.RowHeadersWidth = 51;
+            this.dgBooks.RowTemplate.Height = 24;
+            this.dgBooks.RowTemplate.ReadOnly = true;
+            this.dgBooks.Size = new System.Drawing.Size(1183, 256);
+            this.dgBooks.TabIndex = 1;
+            this.dgBooks.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgBooks_CellMouseClick);
+            this.dgBooks.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBooks_RowEnter);
+            this.dgBooks.SelectionChanged += new System.EventHandler(this.dgBooks_SelectionChanged);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
+            this.titleDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // publicationDateDataGridViewTextBoxColumn
+            // 
+            this.publicationDateDataGridViewTextBoxColumn.DataPropertyName = "PublicationDate";
+            this.publicationDateDataGridViewTextBoxColumn.HeaderText = "PublicationDate";
+            this.publicationDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.publicationDateDataGridViewTextBoxColumn.Name = "publicationDateDataGridViewTextBoxColumn";
+            this.publicationDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // numOfPagesDataGridViewTextBoxColumn
+            // 
+            this.numOfPagesDataGridViewTextBoxColumn.DataPropertyName = "NumOfPages";
+            this.numOfPagesDataGridViewTextBoxColumn.HeaderText = "NumOfPages";
+            this.numOfPagesDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.numOfPagesDataGridViewTextBoxColumn.Name = "numOfPagesDataGridViewTextBoxColumn";
+            this.numOfPagesDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // booksBindingSource
             // 
@@ -257,86 +323,12 @@ namespace WindowsFormsApp1
             this.libraryDataSetBindingSource.DataSource = this.libraryDataSet;
             this.libraryDataSetBindingSource.Position = 0;
             // 
-            // dgBooks
-            // 
-            this.dgBooks.AllowUserToAddRows = false;
-            this.dgBooks.AllowUserToDeleteRows = false;
-            this.dgBooks.AllowUserToResizeColumns = false;
-            this.dgBooks.AllowUserToResizeRows = false;
-            this.dgBooks.AutoGenerateColumns = false;
-            this.dgBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgBooks.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgBooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.titleDataGridViewTextBoxColumn,
-            this.publicationDateDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.numOfPagesDataGridViewTextBoxColumn});
-            this.dgBooks.DataSource = this.booksBindingSource1;
-            this.dgBooks.Location = new System.Drawing.Point(25, 334);
-            this.dgBooks.Name = "dgBooks";
-            this.dgBooks.ReadOnly = true;
-            this.dgBooks.RowHeadersVisible = false;
-            this.dgBooks.RowHeadersWidth = 51;
-            this.dgBooks.RowTemplate.Height = 24;
-            this.dgBooks.Size = new System.Drawing.Size(1135, 150);
-            this.dgBooks.TabIndex = 17;
-            this.dgBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBooks_CellContentClick_1);
-            this.dgBooks.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBooks_RowEnter_1);
-            // 
-            // booksBindingSource1
-            // 
-            this.booksBindingSource1.DataMember = "Books";
-            this.booksBindingSource1.DataSource = this.libraryDataSetBindingSource;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // titleDataGridViewTextBoxColumn
-            // 
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
-            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
-            this.titleDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // publicationDateDataGridViewTextBoxColumn
-            // 
-            this.publicationDateDataGridViewTextBoxColumn.DataPropertyName = "PublicationDate";
-            this.publicationDateDataGridViewTextBoxColumn.HeaderText = "PublicationDate";
-            this.publicationDateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.publicationDateDataGridViewTextBoxColumn.Name = "publicationDateDataGridViewTextBoxColumn";
-            this.publicationDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // numOfPagesDataGridViewTextBoxColumn
-            // 
-            this.numOfPagesDataGridViewTextBoxColumn.DataPropertyName = "NumOfPages";
-            this.numOfPagesDataGridViewTextBoxColumn.HeaderText = "NumOfPages";
-            this.numOfPagesDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.numOfPagesDataGridViewTextBoxColumn.Name = "numOfPagesDataGridViewTextBoxColumn";
-            this.numOfPagesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1207, 621);
-            this.Controls.Add(this.dgBooks);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDelete);
@@ -352,19 +344,18 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbId);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.dgBooks);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximumSize = new System.Drawing.Size(1225, 668);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgBooks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spPages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgBooks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,9 +364,15 @@ namespace WindowsFormsApp1
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgBooks;
         private LibraryDataSet libraryDataSet;
         private System.Windows.Forms.BindingSource booksBindingSource;
         private LibraryDataSetTableAdapters.BooksTableAdapter booksTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn publicationDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numOfPagesDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbId;
         private System.Windows.Forms.TextBox tbTitle;
@@ -392,13 +389,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource libraryDataSetBindingSource;
-        private System.Windows.Forms.DataGridView dgBooks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn publicationDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numOfPagesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource booksBindingSource1;
     }
 }
 

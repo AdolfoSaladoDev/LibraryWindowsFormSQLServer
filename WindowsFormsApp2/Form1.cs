@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using WindowsFormsApp1.Models;
@@ -25,7 +24,7 @@ namespace WindowsFormsApp1
         {
             // TODO: This line of code loads data into the 'libraryDataSet.Books' table. You can move, or remove it, as needed.
             this.booksTableAdapter.Fill(this.libraryDataSet.Books);
-
+            
 
         }
 
@@ -56,8 +55,8 @@ namespace WindowsFormsApp1
 
         private void dgBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-
+            
+            
         }
 
         private void ClearForm()
@@ -76,12 +75,12 @@ namespace WindowsFormsApp1
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            Book newBook = GetDataOfForm();
+            
 
 
-            Books l = GetDataOfFormBooks();
-
-
-            if (Repository.RepositoryEntityFramework.AddBook(l))
+            
+            if (Repository.RepositorySQLServer.CrearContacto(newBook))
             {
                 UpdateForm();
 
@@ -94,18 +93,18 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("No ha sido posible añadir el libro.");
             }
+            
 
-
-
+            
 
 
         }
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            Books l = GetDataOfFormBooks();
+            Book newBook = GetDataOfForm();
 
-            if (Repository.RepositoryEntityFramework.ModifyBook(l))
+            if (Repository.RepositorySQLServer.ModificarContacto(newBook))
             {
                 UpdateForm();
 
@@ -122,16 +121,10 @@ namespace WindowsFormsApp1
 
         private void UpdateForm()
         {
-
+           
             //DataSet ds = Repository.RepositorySQLServer.GetBooks();
-            //dgBooks.DataSource = Repository.RepositoryEntityFramework.GetBooks();
-            //this.booksTableAdapter.Fill(this.libraryDataSet.Books);
+            dgBooks.DataSource = Repository.RepositoryEntityFramework.GetBooks();
             //dgBooks.DataSource = ds.Tables[0];
-
-            var source = new BindingSource();
-            List<Books> list = Repository.RepositoryEntityFramework.GetBooks();
-            source.DataSource = list;
-            dgBooks.DataSource = source;
 
         }
 
@@ -145,40 +138,35 @@ namespace WindowsFormsApp1
             newBook.Description = tbDescription.Text;
             newBook.NumOfPages = int.Parse(spPages.Value.ToString());
 
-
+           
 
             return newBook;
         }
 
         private Books GetDataOfFormBooks()
         {
-            Books l = new Books();
+            Books newBook = new Books();
 
-            if (!tbId.Text.Equals(""))
-            {
-
-                l.Id = int.Parse(tbId.Text);
-
-            }
-
-            l.Title = tbTitle.Text;
-            l.Description = tbDescription.Text;
-            l.PublicationDate = dpDate.Value;
-            l.NumOfPages = int.Parse(spPages.Value.ToString());
+            newBook.Id = int.Parse(tbId.Text.ToString());
+            newBook.Title = tbTitle.Text;
+            newBook.PublicationDate = dpDate.Value;
+            newBook.Description = tbDescription.Text;
+            newBook.NumOfPages = int.Parse(spPages.Value.ToString());
 
 
-            return l;
+
+            return newBook;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
-            Books l = GetDataOfFormBooks();
+            Book newBook = GetDataOfForm();
 
             DialogResult buttonConfirm = MessageBox.Show("¿Estás seguro de que desea eliminarlo?", "Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (buttonConfirm == DialogResult.OK)
             {
-                if (Repository.RepositoryEntityFramework.DeleteBook(l))
+                if (Repository.RepositorySQLServer.EliminarContacto(newBook))
                 {
                     UpdateForm();
                     ClearForm();
@@ -201,7 +189,7 @@ namespace WindowsFormsApp1
 
         private void dgBooks_SelectionChanged(object sender, EventArgs e)
         {
-
+          
         }
 
         private void dgBooks_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -212,24 +200,24 @@ namespace WindowsFormsApp1
             if (numberOfRow != -1)
             {
 
-                tbId.Text = dgBooks.Rows[numberOfRow].Cells[0].Value.ToString();
-                tbTitle.Text = dgBooks.Rows[numberOfRow].Cells[1].Value.ToString();
-                tbDescription.Text = dgBooks.Rows[numberOfRow].Cells[3].Value.ToString();
-                dpDate.Text = dgBooks.Rows[numberOfRow].Cells[2].Value.ToString();
+                    tbId.Text = dgBooks.Rows[numberOfRow].Cells[0].Value.ToString();
+                    tbTitle.Text = dgBooks.Rows[numberOfRow].Cells[1].Value.ToString();
+                    tbDescription.Text = dgBooks.Rows[numberOfRow].Cells[3].Value.ToString();
+                    dpDate.Text = dgBooks.Rows[numberOfRow].Cells[2].Value.ToString();
 
-                spPages.Value = decimal.Parse(dgBooks.Rows[numberOfRow].Cells[4].Value.ToString());
+                    spPages.Value = decimal.Parse(dgBooks.Rows[numberOfRow].Cells[4].Value.ToString());
 
-                btnSave.Enabled = false;
-                btnModify.Enabled = true;
-                btnDelete.Enabled = true;
-
+                    btnSave.Enabled = false;
+                    btnModify.Enabled = true;
+                    btnDelete.Enabled = true;
+                
             }
-
+           
         }
 
         private void dgBooks_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -248,33 +236,6 @@ namespace WindowsFormsApp1
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
-
-        private void dgBooks_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dgBooks_RowEnter_1(object sender, DataGridViewCellEventArgs e)
-        {
-            int numberOfRow = e.RowIndex;
-
-
-            if (numberOfRow != -1)
-            {
-
-                tbId.Text = dgBooks.Rows[numberOfRow].Cells[0].Value.ToString();
-                tbTitle.Text = dgBooks.Rows[numberOfRow].Cells[1].Value.ToString();
-                tbDescription.Text = dgBooks.Rows[numberOfRow].Cells[3].Value.ToString();
-                dpDate.Text = dgBooks.Rows[numberOfRow].Cells[2].Value.ToString();
-
-                spPages.Value = decimal.Parse(dgBooks.Rows[numberOfRow].Cells[4].Value.ToString());
-
-                btnSave.Enabled = false;
-                btnModify.Enabled = true;
-                btnDelete.Enabled = true;
-
-            }
         }
     }
 }
