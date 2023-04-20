@@ -73,7 +73,7 @@ namespace WindowsFormsApp1
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(537, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(14, 0);
+            this.label1.Size = new System.Drawing.Size(252, 121);
             this.label1.TabIndex = 0;
             this.label1.Text = "LIBRERÍA";
             // 
@@ -335,7 +335,7 @@ namespace WindowsFormsApp1
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1207, 621);
+            this.ClientSize = new System.Drawing.Size(1203, 617);
             this.Controls.Add(this.dgBooks);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnExit);
