@@ -76,7 +76,7 @@ namespace WindowsFormsApp1
         private void UpdateForm()
         {
 
-            dgBooks.DataSource = Repository.RepositorySQLServer.GetBooks();
+            booksTableAdapter.Fill(this.libraryDataSet.Books);
 
         }
 

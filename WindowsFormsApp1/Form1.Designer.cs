@@ -203,6 +203,7 @@ namespace WindowsFormsApp1
             // 
             // dpDate
             // 
+            this.dpDate.CustomFormat = "";
             this.dpDate.Location = new System.Drawing.Point(227, 157);
             this.dpDate.Name = "dpDate";
             this.dpDate.Size = new System.Drawing.Size(267, 22);
