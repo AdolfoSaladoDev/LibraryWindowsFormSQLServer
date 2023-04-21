@@ -51,12 +51,12 @@ namespace WindowsFormsApp1
             this.button1 = new System.Windows.Forms.Button();
             this.libraryDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgBooks = new System.Windows.Forms.DataGridView();
-            this.booksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publicationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numOfPagesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.booksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spPages)).BeginInit();
@@ -142,6 +142,7 @@ namespace WindowsFormsApp1
             // 
             // dpDate
             // 
+            this.dpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpDate.Location = new System.Drawing.Point(227, 157);
             this.dpDate.Name = "dpDate";
             this.dpDate.Size = new System.Drawing.Size(267, 22);
@@ -285,11 +286,6 @@ namespace WindowsFormsApp1
             this.dgBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBooks_CellContentClick_1);
             this.dgBooks.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgBooks_RowEnter_1);
             // 
-            // booksBindingSource1
-            // 
-            this.booksBindingSource1.DataMember = "Books";
-            this.booksBindingSource1.DataSource = this.libraryDataSetBindingSource;
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -329,6 +325,11 @@ namespace WindowsFormsApp1
             this.numOfPagesDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.numOfPagesDataGridViewTextBoxColumn.Name = "numOfPagesDataGridViewTextBoxColumn";
             this.numOfPagesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // booksBindingSource1
+            // 
+            this.booksBindingSource1.DataMember = "Books";
+            this.booksBindingSource1.DataSource = this.libraryDataSetBindingSource;
             // 
             // Form1
             // 

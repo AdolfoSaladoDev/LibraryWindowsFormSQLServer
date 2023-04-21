@@ -23,15 +23,13 @@ namespace WindowsFormsApp1.Repository
         {
             var context = new LibraryEntities();
 
-            context.Books.Add(book);
 
             context.Books.Add(book);
-
-
-            
             context.SaveChanges();
-
+            
             return true;
+            
+
         }
 
         public static bool DeleteBook(Books book)
